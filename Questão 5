@@ -1,0 +1,42 @@
+using System;
+using System.Text;
+
+public class Txt
+{
+    private string _conteudo;
+
+    public Txt(string conteudo)
+    {
+        _conteudo = conteudo;
+    }
+
+    public string Conteudo 
+    { 
+        get => _conteudo; 
+        set => _conteudo = value; 
+    }
+
+    public string Inverter()
+    {
+        StringBuilder sb = new StringBuilder(_conteudo.Length);
+
+        for (int i = _conteudo.Length - 1; i >= 0; i--)
+        {
+            sb.Append(_conteudo[i]);
+        }
+
+        return sb.ToString();
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Console.Write("Digite o texto a ser invertido: ");
+        string textoOriginal = Console.ReadLine();
+        Txt txt = new Txt(textoOriginal);
+        string txtInvertido = txt.Inverter();
+        Console.WriteLine(txtInvertido);
+    }
+}

@@ -1,0 +1,31 @@
+using System;
+
+class Program {
+    static void Main(string[] args) {
+        int num = 0, a = 0, b = 1, c = 0, flag = 0;
+        
+        do {
+            Console.Write("Digite um número inteiro positivo: ");
+            if (!int.TryParse(Console.ReadLine(), out num) || num < 1) {
+                Console.WriteLine("Erro: Entrada inválida. Digite um número inteiro positivo.");
+            }
+        } while (num < 1);
+        
+        while (c <= num) {
+            if (c == num) {
+                flag = 1;
+                break;
+            }
+            
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        
+        if (flag == 1) {
+            Console.WriteLine("{0} pertence à sequência de Fibonacci.", num);
+        } else {
+            Console.WriteLine("{0} não pertence à sequência de Fibonacci.", num);
+        }
+    }
+}
